@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Git Version Control Workflow and the Unix Shell</title>
+    </head>
+    <body>
+        <h1 id="Top"><b>Git Version Control Workflow and the Unix Shell</b></h1>
+        <a href="#GitHub_Workflow">GitHub Workflow</a>
+        <a href="#Unix_Shell">Unix Shell</a>
+        <div>
+            <h2 id="GitHub_Workflow"><b>GitHub Workflow</b></h2>
+            <p>Git is a version control tool. Changes can be made to files and they can be saved as different versions of the project without affecting the existing project until the changes are ready to be reviewed and merged into the final project. GitHub is a host for repositories, allowing developers to easily collaborate over the internet. There are multiple ways you can use Git. You can use Git version control by using GitHub, or using Command Line commands in a terminal, or through other software like VSCode.</p>
+                <h3><b>What is a Commit?</b></h3>
+                <p>Using Git, a change can be permanently saved to the repository (project) as a commit. Commits capture the state of the project at that time, like a series of snapshots along the timeline of the project.</p>
+                <h3><b>What is a Branch?</b></h3>
+                <p>A branch allows a developer to independently code a new feature or modify software without affecting the main project. The commits made on a separate branch can be merged back into the main branch when everything works and has been approved.</p>
+                <h3><b>What is a Pull Request?</b></h3>
+                <p>A pull request lets other people see the changes you have made on a branch and asks them to review the changes before the changes are merged into the main branch of the project.</p>
+                <h3>Some Shell Commands for Using Git in the Terminal</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Command</th>
+                                <th>What it does</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>git init</td>
+                                <td>Initialises/creates a new git project/repository</td>
+                            </tr>
+                            <tr>
+                                <td>git status</td>
+                                <td>Used to check the status of the Git repository including the current commit, modified files or files not being tracked by Git</td>
+                            </tr>
+                            <tr>
+                                <td>git add <i>filename</i></td>
+                                <td>Adds the files to the staging area ready to be committed, <i>filename</i> should be replaced with the name of your file</td>
+                            </tr>
+                            <tr>
+                                <td>git commit -m "<i>message</i>"</td>
+                                <td>Adds the current contents of the staging area to a new commit, <i>message</i> should be a description of the changes made in that commit</td>
+                            </tr>
+                            <tr>
+                                <td>git diff <i>filename</i></td>
+                                <td>Shows changes between the working directory and the staging area, <i>filename</i> should be replaced with the name of your file</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                <a href="https://guides.github.com/introduction/flow/" target="_blank">Read more about GitHub Workflow on their website.</a>
+        </div>
+        <a href="#Top">Back to the top</a>
+        
+        <div>
+            <h2 id="Unix_Shell"><b>Unix Shell</b></h2>
+            <p>A Unix Shell is an interface that interprets commands from a user allowing the operating system to understand and carry out the commands. It is a useful tool for file management.</p>
+                <h3><b>Listing Files in a Directory</b></h3>
+                <p>On a computer, information is stored in files which are stored in directories. A directory can contain files but can also contain other subdirectories, and in turn they can also contain more files and other subdirectories.
+                    The shell command to show all the files and directories within the current directory is "<b><i>ls</i></b>"". Arguments can be passed through at the same time to change the behaviour of the command.
+                    For example:
+                    <i>ls -a</i> → shows all files and all hidden files
+                    <i>ls -l</i> → shows all files in long format
+                    <i>ls -t</i> → shows files in order of the time they were last accessed
+                </p>
+                <h3><b>Changing the Working Directory</b></h3>
+                <p>To change directories the change directory command “<b><i>cd</i></b>” followed by a space and then the name of the child directory can be used to move from a parent directory to a child directory. A “<i>/</i>” can be used to move more than one level at a time.</p>
+                <img src="folder-diagram.png" alt="A diagram showing a tree of directories. The Root-Folder is at the top with two arrows pointing down to the child directories Folder-1 and Folder-2. There is a further arrow pointing down under Folder-1 to its child directory Folder-3." width="300" height="300">
+                <p>Starting in Root-Folder, you can change into Folder-3 by using “<i>cd Folder-1/Folder-3</i>”.
+                    But what if you want to jump back up to either the Root-Folder or Folder-2? “<b><i>..</i></b>” can be used to take you back to the parent folder, and together with forward slashes you can travel back up multiple levels.
+                    Starting in Folder-3 the command “<i>../..</i>” would take you back to Root-Folder. Or starting again in Folder-3, “<i>../../Folder-2</i>” would move you into Folder-2.
+                </p>
+                <h3><b>Showing the Working Directory</b></h3>
+                <p>Can’t remember what folder you are in or where you are while navigating your filesystem? No problem, just use the print working directory command “<b><i>pwd</i></b>” to print the path from your root directory to the current working directory.</p>
+                <h3><b>Creating a New Directory</b></h3>
+                <p>To make a new directory inside the current directory use the make directory command “<b><i>mkdir</i></b>” followed by a space and the name of your new directory. It is possible to create a new directory within a different directory to the current directory by adding a path as an argument.</p>
+                <img src="folder-diagram.png" alt="A diagram showing a tree of directories. The Root-Folder is at the top with two arrows pointing down to the child directories Folder-1 and Folder-2. There is a further arrow pointing down under Folder-1 to its child directory Folder-3." width="300" height="300">
+                <p>For example, for the above filesystem, if we were in Root-Folder we could use the command “<i>mkdir Folder-2/Folder-4</i>” to create a folder called Folder-4 inside Folder-2.</p>
+                <h3><b>Creating Files</b></h3>
+                <p>To create a file in the current directory use “<b><i>touch</i></b>” followed by a space and the name of the file you want to create. For example in the diagram below, while in the Root-Folder, the command “<i>touch file1.txt</i>” would create a textfile called “file1” inside the Root-Folder.</p>
+                <img src="folder-diagram.png" alt="A diagram showing a tree of directories. The Root-Folder is at the top with two arrows pointing down to the child directories Folder-1 and Folder-2. There is a further arrow pointing down under Folder-1 to its child directory Folder-3." width="300" height="300">
+                <p>We can also make use of a path as an argument to create a file in a different directory. For example if we were in the Root-Folder we could use the command “<i>touch Folder-1/Folder-3/file2.txt</i>” to create a textfile called “file2” inside Folder-3.</p>
+                <h3><b>Removing Files</b></h3>
+                <p>The shell command to remove a file is “<b><i>rm</i></b>” followed by a space and the name of the file you want to remove. If you add the flag “<i>-r</i>”, the command “<b><i>rm -r</i></b>” will remove a directory and all of the files and directories within it.</p>
+        </div>
+        <a href="#Top">Back to the top</a>
+    </body>
+</html>
